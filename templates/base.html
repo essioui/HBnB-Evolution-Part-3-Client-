@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}main page{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='images/ss.png') }}" type="image/png">
+
+
 </head>
 <body>
     <!--Header-->
@@ -29,6 +35,12 @@
         {% block footer %}
         <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
         {% endblock %}
+
     </footer>
+
+    {% block script %}
+
+    {% endblock %}
+
 </body>
 </html>

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block main %}
+
+<h1>Available Places</h1>
+
+<div class="filter">
+
+    <form action="#">
+        <label for="#"><h3>Filter by country: </h3></label>
+        <select name="" id="">
+            <option value="" selected disabled>All</option>
+            <option value="los angeles">Los Angeles</option>
+            <option value="Toronto">Toronto</option>
+            <option value="new york">New York</option>
+        </select>
+    </form>
+</div>
+
+<section>
+
+    <div class="place-card">
+        <img src="" alt="" class="place-image">
+        <h4>name</h4>
+        <p>Price per night: </p>
+        <p>Location</p>
+        <button class="details-button">View Details</button>
+    </div>
+
+    <div class="place-card">
+        <img src="" alt="" class="place-image">
+        <h4>name</h4>
+        <p>Price per night: </p>
+        <p>Location</p>
+        <button class="details-button">View Details</button>
+    </div>
+
+    <div class="place-card">
+        <img src="" alt="" class="place-image">
+        <h4>name</h4>
+        <p>Price per night: </p>
+        <p>Location</p>
+        <button class="details-button">View Details</button>
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block footer %}
+
+<p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
+
+{% endblock %}

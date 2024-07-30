@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Place Details{% endblock %}
+
+{% block main %}
+
+<div class="place-details">
+
+    <h2>{{place.name}}</h2>
+
+    <div class="place-image-large">
+
+        <img src="" alt="">
+
+    </div>
+
+    <div class="place-info">
+
+        <p><strong>Host: </strong> {{place.host}}</p>
+        <p><strong>Price per night: </strong>$ {{place.price_per_night}}</p>
+        <p><strong>Location: </strong> {{place.location}}</p>
+        <p><strong>Description: </strong> {{place.description}}</p>
+        <p><strong>Amenities: </strong> {{place.amenities}}</p>
+
+    </div>
+
+</div>
+
+<div class="review-card"></div>
+
+{% if user_logged_in %}
+<div class="add_review.html">
+
+    <h3>Add a Review</h3>
+
+
+    <form action="">
+        <label for="review">Your Review</label>
+        <textarea name="review" id="review"></textarea>
+
+        <label for="">Rating</label>
+        <select name="rating" id="rating">
+            <option value="" selected disabled>Stars</option>
+            <option value="1"> &#9733; </option>
+            <option value="2"> &#9733; &#9733; </option>
+            <option value="3"> &#9733; &#9733; &#9733; </option>
+            <option value="4"> &#9733; &#9733; &#9733; &#9733;</option>
+            <option value="5"> &#9733; &#9733; &#9733; &#9733; &#9733;</option>
+        </select>
+    </form>
+
+    <button>Submit Review</button>
+
+</div>
+
+{% else %}
+
+    <p><a href="{{ url_for('login') }}">Sign In</a> here for add Rating</p>
+
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
