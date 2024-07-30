@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} main page {% endblock %}</title>
+</head>
+<body>
+    <!--Header-->
+    <header>
+        {% block header}
+
+        <div class="logo">
+            <img src="images/logo.png">
+        </div>
+
+        <div class="Login">
+            <a href="#">Login</a>
+        </div>
+
+        {% endblock %}
+    </header>
+
+    <!--Main-->
+    <main>
+        {% block main%}
+        {% endblock %}
+    </main>
+
+    <!--Footer-->
+    <footer>
+        {% block footer %}
+
+        <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
+
+        {% endblock %}
+    </footer>
+
+</body>
+</html>
