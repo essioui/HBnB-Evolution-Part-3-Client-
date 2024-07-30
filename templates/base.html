@@ -3,38 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} main page {% endblock %}</title>
+    <title>{% block title %}main page{% endblock %}</title>
 </head>
 <body>
     <!--Header-->
     <header>
-        {% block header}
-
+        {% block header %}
         <div class="logo">
-            <img src="images/logo.png">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
         </div>
-
-        <div class="Login">
-            <a href="#">Login</a>
+        <div class="login">
+            <a href="{{ url_for('login') }}">Login</a>
         </div>
-
         {% endblock %}
     </header>
 
     <!--Main-->
     <main>
-        {% block main%}
+        {% block main %}
         {% endblock %}
     </main>
 
     <!--Footer-->
     <footer>
         {% block footer %}
-
         <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
-
         {% endblock %}
     </footer>
-
 </body>
 </html>
