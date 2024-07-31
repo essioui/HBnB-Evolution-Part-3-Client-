@@ -15,11 +15,11 @@
         </div>
 
         <div>
-            <select name="options" id="options" class="opt">
+            <select name="countries" id="countries" class="opt">
                 <option value="" selected disabled>All</option>
-                <option value="los angeles">Los Angeles</option>
-                <option value="Toronto">Toronto</option>
-                <option value="new york">New York</option>
+                {% for country in countries %}
+                    <option value="{{ country.code }}">{{ country.name }}</option>
+                {% endfor %}
             </select>
         </div>
 
@@ -27,18 +27,15 @@
 </div>
 
 <section>
-    {% for place in places %}
-
+    {% for place in places [:3] %}
     <div class="place-card">
-        <img src="" class="place-image">
-        <h4>{{place.name}}</h4>
-        <p>Price per night: {{place.price_per_night}}</p>
-        <p>Location: {{place.location}}</p>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="place-image" alt="Image of {{ place.name }}">
+        <h4>{{ place.description }}</h4>
+        <p>Price per night: {{ place.price_per_night }}</p>
+        <p>Location: {{ place.city_name }}, {{ place.country_name }}</p>
         <a href="{{ url_for('place', place_id=place.id) }}" class="details-button">View Details</a>
     </div>
-
     {% endfor %}
-
 </section>
 
 {% endblock %}
