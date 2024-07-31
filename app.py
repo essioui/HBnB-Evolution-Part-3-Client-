@@ -1,27 +1,30 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, redirect
+import json
 
 app = Flask(__name__)
 
+def load_places():
+    with open('places.json', 'r') as f:
+        return json.load(f)
+
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    with open('places.json', 'r') as f:
+        places = json.load(f)
 
-@app.route('/place')
-def place():
-    place = {
-        'name': 'Beautiful Beach House',
-        'host': 'John Doe',
-        'price_per_night': 100,
-        'location': 'Los Angeles, United States',
-        'description': 'A beautiful beach house with amazing views.',
-        'amenities': 'WiFi, Pool, Air Conditioning'
-    }
-    user_logged_in = True 
-    return render_template('place.html', place=place, user_logged_in=user_logged_in)
+        return render_template('index.html', places=places[:3])
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+@app.route('/place/<int:place_id>')
+def place(place_id):
+    places = load_places()
+    place = next((p for p in places if p['id'] == place_id), None)
+    if place is None:
+        return redirect(url_for('index'))
+    
+    logged_in = True 
+    return render_template('place.html', place=place, user_logged_in=logged_in)
+
 
 @app.route('/login')
 def login():

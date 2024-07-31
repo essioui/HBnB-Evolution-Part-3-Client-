@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Beautiful Beach House",
+        "host": "John Doe",
+        "price_per_night": "$100",
+        "location": "Los Angeles, United States",
+        "description": "A beautiful beach house with amazing views.",
+        "amenities": ["WiFi", "Pool", "Air Conditioning"]
+    },
+    {
+        "id": 2,
+        "name": "Modern Apartment",
+        "host": "Jane Smith",
+        "price_per_night": "$80",
+        "location": "New York, United States",
+        "description": "A modern apartment in the heart of the city.",
+        "amenities": ["WiFi", "Gym", "Air Conditioning"]
+    },
+    {
+        "id": 3,
+        "name": "Cozy Cabin",
+        "host": "Tom Brown",
+        "price_per_night": "$60",
+        "location": "Toronto, Canada",
+        "description": "A cozy cabin in the woods.",
+        "amenities": ["WiFi", "Fireplace", "Air Conditioning"]
+    }
+]
