@@ -6,7 +6,7 @@
 
 <div class="place-details">
 
-    <h2>{{place.name}}</h2>
+    <h2>{{place.description}}</h2>
 
     <div class="place-image-large">
 
@@ -28,17 +28,21 @@
 
 <h3>Reviews</h3>
 
+{% for review in place.reviews %}
 <div class="review-card">
-    
+
     <div class="review-rating">
-        <h4>Jane Smith</h4>
-        <p>Great place to stay!</p>
+        <h4>{{ review.user_name }}</h4>
+        <p>{{ review.comment }}</p>
+        
         <div>
             <p>Rating</p>
-            <p>&#9733; &#9733; &#9733; &#9733;</p>
+            <p>{% for i in range(review.rating) %}&#9733;{% endfor %}</p>
         </div>
     </div>
+
 </div>
+{% endfor %}
 
 {% if user_logged_in %}
 

@@ -6,21 +6,21 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # قراءة بيانات الدول من ملف JSON
+    
     with open('data/countries.json') as f:
         countries = json.load(f)
     
-    # قراءة بيانات الأماكن من ملف JSON
+    
     with open('data/places.json') as f:
         places = json.load(f)
     
-    # تمرير البيانات إلى القالب
+    
     return render_template('index.html', countries=countries, places=places)
 
 @app.route('/place/<int:place_id>')
 def place(place_id):
-    # هنا يمكنك جلب بيانات المكان باستخدام place_id
-    # مثال:
+    
+    
     with open('data/places.json') as f:
         places = json.load(f)
         place = next((p for p in places if p['id'] == place_id), None)
