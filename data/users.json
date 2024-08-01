@@ -2,7 +2,7 @@
     {
         "id": "user-1",
         "email": "john@example.com",
-        "password": "password123",
+        "password": "123456",
         "name": "John Doe"
     },
     {
@@ -16,5 +16,11 @@
         "email": "alice@example.com",
         "password": "alicepassword",
         "name": "Alice Johnson"
+    },
+    {
+        "id": "4",
+        "email": "test@example.com",
+        "password": "123456",
+        "name": "test"
     }
 ]
