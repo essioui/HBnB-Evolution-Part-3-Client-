@@ -44,7 +44,7 @@
 </div>
 {% endfor %}
 
-{% if user_logged_in %}
+
 
 <h2>Add a Review</h2>
 
@@ -72,11 +72,6 @@
 
 </div>
 
-{% else %}
-
-    <p><a href="{{ url_for('login') }}">Sign In</a> here for add Rating</p>
-
-{% endif %}
 
 {% endblock %}
 

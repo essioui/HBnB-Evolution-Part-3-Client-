@@ -16,11 +16,15 @@
     <header>
         {% block header %}
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            </a>
         </div>
-        <div class="login">
+
+        <div id="login-link">
             <a href="{{ url_for('login') }}">Login</a>
         </div>
+
         {% endblock %}
     </header>
 

@@ -6,14 +6,14 @@ import json
 
 
 app = Flask(__name__)
-CORS(app)  # تفعيل CORS لجميع المسارات
+CORS(app)
 
-# تهيئة JWT
+# JWT
 app.config['JWT_SECRET_KEY'] = 'your_secret_key'
 jwt = JWTManager(app)
 
 
-# قراءة بيانات المستخدمين والأماكن
+# read data users and places
 users_file_path = 'data/users.json'
 places_file_path = 'data/places.json'
 
@@ -23,12 +23,14 @@ with open(users_file_path) as f:
 with open(places_file_path) as f:
     places = json.load(f)
 
-# تخزين المراجعات الجديدة في الذاكرة
+# store in new memory
 new_reviews = []
 
 @app.route('/login', methods=['GET'])
 def show_login_page():
     return render_template('login.html')
+
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -38,20 +40,7 @@ def login():
     user = next((u for u in users if u['email'] == email and u['password'] == password), None)
     
     if not user:
-        # إذا لم يتم العثور على المستخدم، إنشاء مستخدم جديد
-        new_user = {
-            "id": str(len(users) + 1),
-            "email": email,
-            "password": password,
-            "name": email.split('@')[0]  # استخدام الجزء الأول من البريد الإلكتروني كاسم
-        }
-        users.append(new_user)
-        
-        # كتابة المستخدم الجديد إلى ملف JSON
-        with open(users_file_path, 'w') as f:
-            json.dump(users, f, indent=4)
-
-        user = new_user
+        return jsonify({"msg": "Invalid credentials"}), 401
 
     access_token = create_access_token(identity=user['id'])
     return jsonify(access_token=access_token)

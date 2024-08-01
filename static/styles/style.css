@@ -25,12 +25,12 @@ header {
     height: 60px;
 }
 
-.login {
+#login-link {
     padding-top: 20px;
     padding-right: 20px;
 }
 
-.login a {
+#login-link a {
     text-decoration: none;
     color: white;
 }
