@@ -3,31 +3,26 @@
 {% block title %} Home {% endblock %}
 
 {% block main %}
-
 <h1 class="available">Available Places</h1>
 
 <div class="filter">
-
     <form action="#">
-
         <div class="design">
-        <label for="options"><span><strong> Filter by country: </strong></span></label>
+            <label for="countries"><span><strong>Filter by country:</strong></span></label>
         </div>
-
         <div>
             <select name="countries" id="countries" class="opt">
                 <option value="" selected disabled>All</option>
                 {% for country in countries %}
-                    <option value="{{ country.code }}">{{ country.name }}</option>
+                    <option value="{{ country.name }}">{{ country.name }}</option>
                 {% endfor %}
             </select>
         </div>
-
     </form>
 </div>
 
-<section>
-    {% for place in places [:3] %}
+<section id="places-section">
+    {% for place in places[:3] %}
     <div class="place-card">
         <img src="{{ url_for('static', filename='images/logo.png') }}" class="place-image" alt="Image of {{ place.name }}">
         <h4>{{ place.description }}</h4>
@@ -38,13 +33,9 @@
     {% endfor %}
 </section>
 
-
-<script src="{{ url_for('static', filename='login.js') }}"></script>
-
+<script src="{{ url_for('static', filename='login.js') }}" defer></script>
 {% endblock %}
 
 {% block footer %}
-
 <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
-
 {% endblock %}
